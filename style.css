@@ -1,0 +1,54 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Rubik";
+  font-size:xx-large;
+  background-image: "https://images.hdqwalls.com/wallpapers/dark-minimalist-blur-4k-4o.jpg";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headingText{
+    color: antiquewhite;
+    font-weight: bolder;
+    font-size: 51px;
+}
+
+.searchbox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 5%;
+}
+
+.sbox{
+    height: 8vh;
+    width:90%;
+    
+    background-color: rgba(58, 128, 236,0.1);
+    border-radius: 20px;
+    font-size: large;
+    padding-left: 5%;
+    color: antiquewhite;
+
+}
+
+::placeholder {
+    color: antiquewhite;
+    font-size: large;
+  }
+
+.slogo{
+    height: 5%;
+    width: 5%;
+}

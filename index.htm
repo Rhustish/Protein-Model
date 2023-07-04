@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.svg">
+    <title>Document</title>
+</head>
+
+<body background="https://images.hdqwalls.com/wallpapers/dark-minimalist-blur-4k-4o.jpg">
+    <div class="wrapper">
+        <div class="heading">
+            <p class="headingText">Protein Models: Find the Perfect Fit for Your Research</p>
+        </div>
+        <div class="searchbox">
+            <input id="sox" class="sbox" type="text" placeholder="Enter PDB ID...">
+            <img id="exec" src="slogo.png" class="slogo">
+        </div>
+    </div>
+<script>
+    const but = document.getElementById("exec")
+    const query = document.getElementById("sox")
+    but.addEventListener("click",()=>{
+        if(query.value.length == 0){
+            alert("Please input something in the search box")
+        }
+        window.location.href ="/model.html"
+    })
+</script>
+</body>
+
+</html>
