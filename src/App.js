@@ -6,16 +6,18 @@ import Model from './Model';
 function App() {
 
   const [isSearched, setIsSearched] = useState(false);
+  const [query, setQuery] = useState("")
 
-  const onClickHandler = () => {
-    // setIsSearched(true);
+  const onClickHandler = (query) => {
+    setIsSearched(true);
+    setQuery(query)
   }
 
   return (
     <>
-      {isSearched ? 
-      <Model />:
-      <Home onClickHandler={onClickHandler} />
+      {isSearched ?
+        <Model query={query} /> :
+        <Home onClickHandler={onClickHandler} />
       }
     </>
   );

@@ -10,8 +10,8 @@ export default function Home(props) {
   const [queryTracer,setQueryTracer] = useState("")
 
   const queryChangeHandler = (query)=>{
-    console.log(query.target.value);
     setQueryTracer(query.target.value)
+    console.log(queryTracer);
   }
   
   return (
