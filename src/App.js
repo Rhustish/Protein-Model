@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import './App.css';
-import Home from "./Home"
-import Model from './Model';
+import Home from "./pages/Home"
+import Info from './pages/Info';
 
 function App() {
 
-  const [isSearched, setIsSearched] = useState(false);
+  const [isSearched, setIsSearched] = useState(false); //change this to false at the end please dont forger
   const [query, setQuery] = useState("")
 
   const onClickHandler = (query) => {
@@ -16,8 +15,8 @@ function App() {
   return (
     <>
       {isSearched ?
-        <Model query={query} /> :
-        <Home onClickHandler={onClickHandler} />
+        <Info query={query} setIsSearched={setIsSearched} onClickHandler={onClickHandler}/> :
+        <Home onClickHandler={onClickHandler}  errorstate = {false}/>
       }
     </>
   );
