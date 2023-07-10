@@ -121,7 +121,10 @@
   height: 100%;
   width: 30%;
   border-right: 2px solid antiquewhite;
+  border-bottom: 2px solid antiquewhite;
   border-radius: 10px;
+  justify-content: space-between;
+  padding-bottom: 1vh;
 }
 
 hr {
@@ -131,4 +134,16 @@ hr {
 #homebutton{
   background-color: rgba(1,1,1,0);
   cursor:pointer;
+}
+
+
+li{
+  list-style-type: none;
+  font-size: x-large;
+  padding-top: 3%;
+}
+
+#Fname{
+  font-weight: bold;
+  padding-bottom: 0.5%;
 }

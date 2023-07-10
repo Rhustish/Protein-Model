@@ -1,5 +1,5 @@
 // URL of the PDB API
-const apiUrl = `https://data.rcsb.org/rest/v1/core/entry/5crn`;
+const apiUrl = `https://data.rcsb.org/rest/v1/core/entry/1crn`;
 
 // Fetch the protein data
 fetch(apiUrl)
@@ -7,3 +7,4 @@ fetch(apiUrl)
   .then(data => {
     console.log(data);
   })  
+
