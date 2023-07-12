@@ -1,45 +1,47 @@
-const fs = require('fs');
-const csv = require('fast-csv');
+// async function fetchCifFiles(pdbId) {
+//   const apiBaseUrl = 'https://files.rcsb.org/download';
+//   const cifUrls = [];
 
-// Define the CSV file path and JSON output path
-const csvFilePath = 'data.csv';
-const jsonFilePath = 'data.json';
+//   try {
+//     // Fetch the CIF data for the protein
+//     const response = await fetch(`${apiBaseUrl}/${pdbId}.cif`);
+//     const cifData = await response.text();
 
-// Create an object to store the protein data
-const proteinData = {};
+//     // Extract the assembly indices
+//     const assemblyIndices = [];
+//     let assemblyStart = 0;
+//     cifData.split('\n').forEach((line, index) => {
+//       if (line.startsWith('_pdbx_struct_assembly.id')) {
+//         if (assemblyStart > 0) {
+//           assemblyIndices.push([assemblyStart, index]);
+//         }
+//         assemblyStart = index;
+//       }
+//     });
+//     assemblyIndices.push([assemblyStart, cifData.split('\n').length]);
 
-// Read the CSV file
-fs.createReadStream(csvFilePath)
-  .pipe(csv.parse({ headers: false }))
-  .on('data', (row) => {
-    // Extract the protein name and corresponding value
-    const [protein, , value] = row;
-    const assembly = protein.split('_')[0];
-    const sequence = parseInt(protein.split('_')[1]);
+//     // Fetch CIF files for each assembly
+//     for (let i = 0; i < assemblyIndices.length; i++) {
+//       const [start, end] = assemblyIndices[i];
+//       const assemblyData = cifData.split('\n').slice(start, end).join('\n');
+//       const assemblyUrl = `${apiBaseUrl}/${pdbId}_assembly${i + 1}.cif`;
+//       cifUrls.push(assemblyUrl);
 
-    // Check if the protein exists in the proteinData object
-    if (!proteinData[assembly]) {
-      proteinData[assembly] = {};
-    }
+//     }
+//   } catch (error) {
+//     console.error('Error:', error);
+//   }
 
-    // Add the value to the protein's array in the proteinData object
-    proteinData[assembly][sequence] = parseFloat(value);
-  })
-  .on('end', () => {
-    // Sort the sequences in ascending order
-    for (const assembly in proteinData) {
-      proteinData[assembly] = Object.values(proteinData[assembly]).sort((a, b) => a - b);
-    }
+//   return cifUrls;
+// }
 
-    // Convert the proteinData object to JSON
-    const jsonData = JSON.stringify(proteinData, null, 2);
-
-    // Write the JSON data to a file
-    fs.writeFile(jsonFilePath, jsonData, (err) => {
-      if (err) {
-        console.error('Error writing JSON file:', err);
-      } else {
-        console.log('JSON file has been created successfully!');
-      }
-    });
-  });
+// // Usage example
+// const pdbId = '4b5m '; // Replace with the desired PDB identifier
+// fetchCifFiles(pdbId)
+//   .then((cifUrls) => {
+//     console.log('CIF URLs:', cifUrls);
+//   })
+//   .catch((error) => {
+//     console.error('Error:', error);
+//   });
+fetch( 'https://files.rcsb.org/download/1XYZ_assembly1.cif').then(res=>{console.log(res);})

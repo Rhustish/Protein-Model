@@ -1,0 +1,48 @@
+/* RadioButton.css */
+
+/* Hide the default radio button */
+input[type="radio"] {
+    display: none;
+  }
+  
+  /* Style the labels to create the custom radio buttons */
+  label {
+    display: flex;
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 2px solid #999;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  /* Add grey border for de-selected options */
+  label:not(.selected) {
+    border-color: #3b3b3b;
+  }
+  
+  /* Add white border and background for selected option */
+  label.selected {
+    border-color: #fff;
+    /* background-color: #fff; */
+  }
+  
+  /* Style the option text */
+  label span {
+    padding-left: 24px;
+  }
+  
+  /* Optional: Add hover effect */
+  label:hover {
+    border-color: #ccc;
+  }
+  
+  label{
+    border-radius: 20px;
+  }
+
+  .dataer{
+
+
+  }

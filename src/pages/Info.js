@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import List from '../components/List';
 import "./Info.css"
 import Home from './Home';
 
@@ -6,14 +7,15 @@ export default function Info(props) {
   const pdbid = props.query.toUpperCase();
 
   const [apiData, setApiData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); 
+  const [currsel,setCurrSel] = useState("1");
 
   useEffect(() => {
     setLoading(true)
     async function fetchData() {
-      const res = await fetch(`https://data.rcsb.org/rest/v1/core/entry/${pdbid}`)
-      const data = await res.json()
-      setApiData(data);
+      const Ires = await fetch(`https://data.rcsb.org/rest/v1/core/entry/${pdbid}`)
+      const Idata = await Ires.json()
+      setApiData(Idata);
       setLoading(false)
     }
     fetchData();
@@ -53,6 +55,7 @@ export default function Info(props) {
               <li>Number of Available Assemblies : {apiData.rcsb_entry_info.assembly_count}</li>
               <li>Polymer Composition : {apiData.rcsb_entry_info.polymer_composition}</li>
             </ul>
+            <List count={apiData.rcsb_entry_info.assembly_count}  currsel={currsel} setCurrSel={setCurrSel} pid={pdbid}/>
           </div>
           <div className="controls">
             <p id="homebutton" onClick={() => props.setIsSearched(false)} >🏠 Home</p>
