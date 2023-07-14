@@ -1,1 +1,0 @@
-fetch("https://files.rcsb.org/download/4BM1-assembly2.cif").then(res=>console.log(res.json()))
