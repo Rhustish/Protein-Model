@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import List from '../components/List';
 import "./Info.css"
 import Home from './Home';
+import Frame from '../components/Frame';
 
 export default function Info(props) {
   const pdbid = props.query.toUpperCase();
@@ -61,10 +62,10 @@ export default function Info(props) {
             <p id="homebutton" onClick={() => props.setIsSearched(false)} >🏠 Home</p>
           </div>
         </div>
-        <div className='rightframe'>frame</div>
+        <div className='rightframe'>
+          <Frame no={currsel} pdbid={pdbid}/>
+        </div>
       </div>
     </div>
   )
 }
-
-

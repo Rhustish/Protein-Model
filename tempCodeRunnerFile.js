@@ -1,0 +1,1 @@
+https://data.rcsb.org/rest/v1/core/assembly/1CRN/1
