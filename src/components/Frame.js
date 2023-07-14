@@ -1,21 +1,29 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react';
 import * as NGL from 'ngl';
+
 export default function Frame({ pdbid, no }) {
-  const uri = `https://files.rcsb.org/download/${pdbid}-assembly${no}.cif`
-  console.log("here");
+  const uri = `https://files.rcsb.org/download/${pdbid}-assembly${no}.cif`;
+  const stageRef = useRef(null);
+
   useEffect(() => {
+    const viewport = document.getElementById('viewport');
+    while (viewport.firstChild) {
+      viewport.removeChild(viewport.firstChild);
+    }
+    const stage = new NGL.Stage('viewport');
+    stageRef.current = stage;
 
-    const stage = new NGL.Stage('viewport')
-    stage.loadFile(uri , { defaultRepresentation: true }).then(function (o) {
+    stage.loadFile(uri, { defaultRepresentation: true }).then((o) => {
       o.addRepresentation('cartoon');
-
       o.autoView();
-
     });
-  }, [uri])
 
-  return (
+    return () => {
+      if (stageRef.current) {
+        stageRef.current.dispose();
+      }
+    };
+  }, [uri]);
 
-    <div id="viewport" style={{ width: '100%', height: '100%' , overflow:"hidden" }}>{console.log("nnahi ayar phit jtyyyyyyyyyy")}</div>
-  )
+  return <div id="viewport" style={{ width: '99%', height: '99%', overflow: 'hidden' }}></div>;
 }
