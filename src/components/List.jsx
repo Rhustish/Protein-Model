@@ -19,7 +19,7 @@ function List(props) {
           checked={props.currsel === `${k}`}
           onChange={handleOptionChange}
         />
-         <div className="dataer"><span>{`Assembly ${k}`}</span>   |<span className="err">{`Error : ${a[pid.toLowerCase()][k-1]}`}</span></div>
+         <div className="dataer"><span>{`Assembly ${k}`}</span>   |<span className="err">{`QSBIO Error : ${a[pid.toLowerCase()][k-1]}`}</span></div>
       </label>
   );
 

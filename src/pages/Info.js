@@ -50,7 +50,7 @@ export default function Info(props) {
         <div className='leftframe'>
           <div className="pinfo">
             <ul>
-              <li>Type : {apiData.struct_keywords.text}</li>
+              <li>Unique Protein Chains: {apiData.rcsb_entry_info.polymer_entity_count_protein}</li>
               <li>Monomer Count : {apiData.rcsb_entry_info.deposited_modeled_polymer_monomer_count}</li>
               <li>Molecular Weight : {apiData.rcsb_entry_info.molecular_weight} g/M</li>
               <li>Number of Available Assemblies : {apiData.rcsb_entry_info.assembly_count}</li>

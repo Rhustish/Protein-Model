@@ -42,7 +42,6 @@ input[type="radio"] {
     border-radius: 20px;
   }
 
-  .dataer{
-
-
-  }
+.err{
+  font-size: large;
+}

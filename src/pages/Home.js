@@ -34,7 +34,7 @@ export default function Home(props) {
     <div className="wrapper">
 
       <div className="heading">
-        <p className="headingText">Protein Models: Find the Perfect Fit for Your Research</p>
+        <p className="headingText">Protein Quarternary Structures: Find the Best Assembly for Your Research</p>
       </div>
       <div className="searchbox">
         <input id="sox" className="sbox" type="text" placeholder="Enter PDB ID..." onChange={queryChangeHandler} onKeyDown={handleKeyPress}/>
