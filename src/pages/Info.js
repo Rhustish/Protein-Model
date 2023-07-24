@@ -3,6 +3,7 @@ import List from '../components/List';
 import "./Info.css"
 import Home from './Home';
 import Frame from '../components/Frame';
+import a from "../assets/data"
 
 export default function Info(props) {
   const pdbid = props.query.toUpperCase();
@@ -33,7 +34,7 @@ export default function Info(props) {
     )
   }
 
-  if (!loading && apiData.status === 404) {
+  if (!loading && (apiData.status === 404 || typeof a[pdbid.toLowerCase()] == "undefined")) {
 
     return (<Home onClickHandler={props.onClickHandler} errorstate={true} />)
   }
@@ -55,6 +56,7 @@ export default function Info(props) {
               <li>Molecular Weight : {apiData.rcsb_entry_info.molecular_weight} g/M</li>
               <li>Number of Available Assemblies : {apiData.rcsb_entry_info.assembly_count}</li>
               <li>Polymer Composition : {apiData.rcsb_entry_info.polymer_composition}</li>
+              <li >*QSbio error is the inaccuracy between predicted and experimental structures</li>
             </ul>
             <List count={apiData.rcsb_entry_info.assembly_count}  currsel={currsel} setCurrSel={setCurrSel} pid={pdbid}/>
           </div>
