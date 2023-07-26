@@ -56,7 +56,7 @@ export default function Info(props) {
               <li>Molecular Weight : {apiData.rcsb_entry_info.molecular_weight} g/M</li>
               <li>Number of Available Assemblies : {apiData.rcsb_entry_info.assembly_count}</li>
               <li>Polymer Composition : {apiData.rcsb_entry_info.polymer_composition}</li>
-              <li >*QSbio error is the inaccuracy between predicted and experimental structures</li>
+              <li >*QSbio Error: Annotation error rate for an assembly to be physiological, 10.1038/nmeth.4510</li>
             </ul>
             <List count={apiData.rcsb_entry_info.assembly_count}  currsel={currsel} setCurrSel={setCurrSel} pid={pdbid}/>
           </div>
